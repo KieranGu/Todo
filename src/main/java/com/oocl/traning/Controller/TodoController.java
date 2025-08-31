@@ -9,19 +9,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class TodoController {
-//    post {URL}/api/v1/todos
+
     private TodoService todoService;
     public TodoController(TodoService todoService){
         this.todoService=todoService;
     }
 
     @PostMapping("/todos")
-    @ResponseStatus(HttpStatus.CREATED)//返回创建成功的状态码
+    @ResponseStatus(HttpStatus.CREATED)
     public void saveTodo(@RequestBody Todo todo){
         todoService.saveTodo(todo);
     }
 
-//    GET {URL}/api/v1/todos
     @GetMapping("/todos")
     public List<Todo> getAllTodos(){
         return todoService.getAllTodos();
