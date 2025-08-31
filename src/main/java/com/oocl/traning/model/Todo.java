@@ -16,6 +16,10 @@ public class Todo {
         this.title = title;
         this.status = status;
     }
+    public Todo(String title, String status) {
+        this.title = title;
+        this.status = status;
+    }
     public Todo() {
     }
 
