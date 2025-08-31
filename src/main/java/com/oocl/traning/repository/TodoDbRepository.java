@@ -1,10 +1,11 @@
 package com.oocl.traning.repository;
 
-import com.oocl.traning.Controller.Todo;
+import com.oocl.traning.model.Todo;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+@RestController
 @Repository
 public class TodoDbRepository {
     private final JPATodoRepository jpaTodoRepository;

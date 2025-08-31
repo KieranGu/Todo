@@ -1,6 +1,6 @@
 package com.oocl.traning.service;
 
-import com.oocl.traning.Controller.Todo;
+import com.oocl.traning.model.Todo;
 import com.oocl.traning.repository.TodoDbRepository;
 
 import java.util.List;

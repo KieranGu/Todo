@@ -1,6 +1,12 @@
-package com.oocl.traning.Controller;
+package com.oocl.traning.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Todo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String status;
