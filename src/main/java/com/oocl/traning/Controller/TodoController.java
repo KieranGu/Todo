@@ -40,8 +40,8 @@ public class TodoController {
         todoService.deleteTodoById(id);
     }
 
-    @GetMapping("/todos?page={page}&size={size}")
-    public List<Todo> getTodosByPage(@PathVariable int page, @PathVariable int size){
+    @GetMapping("/todos")
+    public List<Todo> getTodosByPage(@RequestParam int page, @RequestParam int size){
         return todoService.getTodosByPage(page,size);
     }
 
