@@ -9,16 +9,25 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-    private String status;
+    private Boolean complete;
+    //把status改成enum
 
-    public Todo(int id, String title, String status) {
+
+    public Todo(int id, String title, String complete) {
         this.id = id;
         this.title = title;
-        this.status = status;
+        if (complete == null || complete.isEmpty()) {
+            this.complete = false;
+        } else
+        this.complete = false;
     }
-    public Todo(String title, String status) {
+    public Todo(String title, String complete) {
         this.title = title;
-        this.status = status;
+        this.complete = false;
+    }
+    public Todo(String title) {
+        this.title = title;
+        this.complete = false;
     }
     public Todo() {
     }
@@ -39,11 +48,11 @@ public class Todo {
         this.title = title;
     }
 
-    public String getStatus() {
-        return status;
+    public Boolean getComplete() {
+        return complete;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setComplete(Boolean complete) {
+        this.complete = complete;
     }
 }

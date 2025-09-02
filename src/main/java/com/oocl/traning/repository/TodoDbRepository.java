@@ -2,10 +2,8 @@ package com.oocl.traning.repository;
 
 import com.oocl.traning.model.Todo;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-@RestController
 @Repository
 public class TodoDbRepository {
     private final JPATodoRepository jpaTodoRepository;
@@ -13,8 +11,8 @@ public class TodoDbRepository {
         this.jpaTodoRepository=jpaTodoRepository;
     }
 
-    public void saveTodo(Todo todo){
-        jpaTodoRepository.save(todo);
+    public Todo saveTodo(Todo todo){
+        return jpaTodoRepository.save(todo);
     }
 
     public List<Todo> getAllTodos(){
@@ -33,7 +31,7 @@ public class TodoDbRepository {
         Todo existingTodo = jpaTodoRepository.findById(id).orElse(null);
         if (existingTodo != null) {
             existingTodo.setTitle(todo.getTitle());
-            existingTodo.setStatus(todo.getStatus());
+            existingTodo.setComplete(todo.getComplete());
             jpaTodoRepository.save(existingTodo);
         }
     }

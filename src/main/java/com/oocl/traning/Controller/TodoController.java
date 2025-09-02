@@ -17,8 +17,8 @@ public class TodoController {
 
     @PostMapping("/todos")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveTodo(@RequestBody Todo todo){
-        todoService.saveTodo(todo);
+    public Todo saveTodo(@RequestBody Todo todo){
+        return todoService.saveTodo(todo);
     }
 
     @GetMapping("/todos")
@@ -40,6 +40,10 @@ public class TodoController {
         todoService.deleteTodoById(id);
     }
 
+    @GetMapping("/todos?page={page}&size={size}")
+    public List<Todo> getTodosByPage(@PathVariable int page, @PathVariable int size){
+        return todoService.getTodosByPage(page,size);
+    }
 
 
 
