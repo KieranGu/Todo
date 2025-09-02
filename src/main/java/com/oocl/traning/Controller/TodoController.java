@@ -21,10 +21,10 @@ public class TodoController {
         return todoService.saveTodo(todo);
     }
 
-    @GetMapping("/todos")
-    public List<Todo> getAllTodos(){
-        return todoService.getAllTodos();
-    }
+//    @GetMapping("/todos")
+//    public List<Todo> getAllTodos(){
+//        return todoService.getAllTodos();
+//    }
 
     @GetMapping("/todos/{id}")
     public Todo getTodoById(@PathVariable int id){
@@ -40,9 +40,11 @@ public class TodoController {
         todoService.deleteTodoById(id);
     }
 
-    @GetMapping("/todos?page={page}&size={size}")
-    public List<Todo> getTodosByPage(@PathVariable int page, @PathVariable int size){
-        return todoService.getTodosByPage(page,size);
+    @GetMapping("/todos")
+    public List<Todo> getTodosByPage(@RequestParam (required = false)int page, @RequestParam(required = false) int size) {
+        if (page <= 0 || size <= 0)
+            return todoService.getAllTodos();
+        return todoService.getTodosByPage(page, size);
     }
 
 
